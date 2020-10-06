@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
-from api.models import Product, Category, Company, User
+from .models import Product, Category, Company, User
 
 
 @admin.register(User)
