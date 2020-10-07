@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
 
+    'django_celery_results',
+    'django_celery_beat',
+
     'api',
 ]
 
@@ -115,6 +118,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# Celery
+
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'django-cache'
+CELERY_BROKER_URL = 'amqp://localhost:5672'
 
 
 # Password validation

@@ -27,7 +27,8 @@ class Category(models.Model):
 
 
 class Company(models.Model):
-    name = models.CharField(max_length=100, help_text='Company name')
+    name = models.CharField(unique=True, max_length=100,
+                            help_text='Company name')
     description = models.TextField(help_text='Company description')
     customers = models.ManyToManyField('User', blank=True,
                                        related_name='customers')
