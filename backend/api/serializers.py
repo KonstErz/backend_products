@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Category, Company, Product
+from api.models import User, Category, Company, Product
 
 
 class SignupSerializer(serializers.Serializer):

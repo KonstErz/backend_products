@@ -5,10 +5,10 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import User, Category, Company, Product
-from .serializers import (SignupSerializer, LoginSerializer,
-                          CategorySerializer, CompanySerializer,
-                          ProductSerializer, ProductDetailSerializer)
+from api.models import User, Category, Company, Product
+from api.serializers import (SignupSerializer, LoginSerializer,
+                             CategorySerializer, CompanySerializer,
+                             ProductSerializer, ProductDetailSerializer)
 
 
 class SignupView(APIView):

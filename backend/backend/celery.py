@@ -20,7 +20,7 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'update-data-every-hour': {
-        'task': 'api.tasks.data_updater.update_companies',
-        'schedule': crontab(minute='*/3'),
+        'task': 'api.tasks.update_companies',
+        'schedule': crontab(hour='*/1'),
     },
 }

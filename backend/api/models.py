@@ -7,11 +7,14 @@ from rest_framework.authtoken.models import Token
 
 
 class Product(models.Model):
-    title = models.CharField(unique=True, max_length=200,
-                             help_text='Product name')
-    description = models.TextField(help_text='Product description')
+    title = models.CharField(max_length=200, help_text='Product name')
+    description = models.TextField(help_text='Product description',
+                                   blank=True, null=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    ext_id = models.IntegerField(default=0,
+                                 help_text='Product id in an external service',
+                                 blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -29,9 +32,13 @@ class Category(models.Model):
 class Company(models.Model):
     name = models.CharField(unique=True, max_length=100,
                             help_text='Company name')
-    description = models.TextField(help_text='Company description')
+    description = models.TextField(help_text='Company description',
+                                   blank=True, null=True)
     customers = models.ManyToManyField('User', blank=True,
                                        related_name='customers')
+    ext_id = models.IntegerField(default=0,
+                                 help_text='Company id in an external service',
+                                 blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
